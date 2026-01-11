@@ -1,7 +1,6 @@
 README
 
-📦 FernanPop – Plataforma de compra-venta en Java
-
+<h1>📦 FernanPop – Plataforma de compra-venta en Java </h1>
 <br>
 
 📖 Descripción del proyecto
@@ -43,25 +42,25 @@ El proyecto está organizado en distintos paquetes para facilitar su mantenimien
 
 src/ <br>
  ├── view/ <br>
- │   └── Main.java <br>
- │       → Clase principal que controla el flujo de la aplicación <br>
+ │ㅤㅤ└── Main.java <br>
+ │ㅤㅤㅤㅤ→ Clase principal que controla el flujo de la aplicación <br>
  │ <br>
  ├── models/ <br>
- │   ├── Usuario.java <br>
- │   │   → Gestiona los datos del usuario, productos, pedidos y ventas <br>
- │   │ <br>
- │   ├── Productos.java <br>
- │   │   → Representa los productos puestos a la venta <br>
- │   │ <br>
- │   └── Venta.java <br>
- │       → Representa una compra o venta realizada <br>
+ │ㅤㅤ├── Usuario.java <br>
+ │ㅤㅤ│ㅤㅤ→ Gestiona los datos del usuario, productos, pedidos y ventas <br>
+ │ㅤㅤ│ <br>
+ │ㅤㅤ├── Productos.java <br>
+ │ㅤㅤ│ㅤㅤ→ Representa los productos puestos a la venta <br>
+ │ㅤㅤ│ <br>
+ │ㅤㅤ└── Venta.java <br>
+ │ㅤㅤㅤㅤㅤ→ Representa una compra o venta realizada <br>
  │ <br>
  └── utils/ <br>
-     ├── Menu.java <br>
-     │   → Contiene los textos de los menús de la aplicación <br>
-     │ <br>
-     └── Utils.java <br>
-         → Métodos auxiliares (limpiar pantalla, pausas, etc.) <br>
+ ㅤㅤㅤ├── Menu.java <br>
+ ㅤㅤㅤ│ㅤㅤ→ Contiene los textos de los menús de la aplicación <br>
+ ㅤㅤㅤ│ <br>
+ ㅤㅤㅤ└── Utils.java <br>
+ ㅤㅤㅤㅤㅤ→ Métodos auxiliares (limpiar pantalla, pausas, etc.) <br>
 
 <br>
 
