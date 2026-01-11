@@ -1,31 +1,35 @@
 package view;
 
 import java.util.Scanner;
-
 import models.Usuario;
 import utils.Menu;
 import utils.Utils;
-import models.Venta;
-
 
 public class Main {
+
     public static void main(String[] args) {
+
         Scanner s = new Scanner(System.in);
+
         Usuario u1 = new Usuario("carlos.barroso@fernando3martos.com", 1234, "Carlos");
         Usuario u2 = new Usuario("fcanmae0512@g.educaaand.es", 4321, "Francisco");
+
         Usuario user = null;
         Usuario user2 = null;
+
         String email, teclado;
         int op, idProducto, idPedido;
-
 
         do {
             System.out.println(Menu.Bienvenida());
             System.out.print("Introduzca email (-1 para cerrar el programa): ");
             email = s.nextLine();
+
             if (!email.equals("-1")) {
+
                 System.out.print("Introduzca clave: ");
                 int clave = Integer.parseInt(s.nextLine());
+
                 if (email.equals(u1.getEmail()) && clave == u1.getClave()) {
                     user = u1;
                     user2 = u2;
@@ -33,263 +37,116 @@ public class Main {
                     user = u2;
                     user2 = u1;
                 } else {
-                    System.out.println("El usuario o la contraseña introducidos no son válidos, pulsa ENTER para continuar...");
+                    System.out.println("El usuario o la contraseña introducidos no son válidos.");
                     Utils.pulsaEnter();
                     Utils.limpiaPantalla();
                 }
+
                 if (user != null) {
+
                     System.out.println("Bienvenido " + user.getNombre());
+
                     do {
                         System.out.print(Menu.menuPrincipal());
                         op = Integer.parseInt(s.nextLine());
                         Utils.limpiaPantalla();
+
                         switch (op) {
+
                             case 1:
                                 System.out.println(user);
-                                System.out.println("Pulsa ENTER para continuar");
                                 Utils.pulsaEnter();
                                 break;
+
                             case 2:
                                 System.out.print(Menu.menuCambiarDatos());
                                 op = Integer.parseInt(s.nextLine());
-                                if (op <= 3 && op >= 1) {
+
+                                if (op >= 1 && op <= 3) {
                                     System.out.print("Introduce el nuevo valor: ");
                                     teclado = s.nextLine();
                                     user.cambiaDatoPersonal(op, teclado);
-                                    System.out.println("Cambios guardados correctamente, pulsa ENTER para continuar...");
                                 } else {
-                                    System.out.println("La opción introducida no es válida, pulsa ENTER para continuar...");
+                                    System.out.println("Opción no válida");
                                 }
+
                                 Utils.pulsaEnter();
                                 break;
+
                             case 3:
-                                if (user.getP1() == null && user.getP2() == null) {
-                                    System.out.println("Actualmente no tienes ningún producto a la venta, pulsa ENTER para continuar...");
-                                } else {
-                                    if (user.getP1() != null) {
-                                        System.out.println(user.getP1());
-                                    }
-
-                                    if (user.getP2() != null) {
-                                        System.out.println(user.getP2());
-                                    }
-
-                                    System.out.println("Pulsa ENTER para continuar...");
-                                }
+                                if (user.getP1() != null) System.out.println(user.getP1());
+                                if (user.getP2() != null) System.out.println(user.getP2());
                                 Utils.pulsaEnter();
                                 break;
+
                             case 4:
                                 if (user.getP1() != null && user.getP2() != null) {
-                                    System.out.println("No puedes tener más productos a la venta! Pulsa ENTER para continuar...");
+                                    System.out.println("No puedes tener más productos.");
                                 } else {
-                                    System.out.print("Introduce el nombre de tu producto: ");
-                                    String nombreProducto = s.nextLine();
-                                    System.out.print("Introduce la descripción de tu producto: ");
-                                    String descripcionProducto = s.nextLine();
-                                    System.out.print("Introduce el precio de tu producto: ");
-                                    float precioProducto = Float.parseFloat(s.nextLine());
-                                    user.nuevoProducto(user == u1 ? 10 : 20, nombreProducto, descripcionProducto, precioProducto);
-                                    System.out.println("Producto registrado correctamente! Pulsa ENTER para continuar...");
+                                    System.out.print("Nombre: ");
+                                    String nombre = s.nextLine();
+                                    System.out.print("Descripción: ");
+                                    String descripcion = s.nextLine();
+                                    System.out.print("Precio: ");
+                                    float precio = Float.parseFloat(s.nextLine());
+
+                                    user.nuevoProducto(user == u1 ? 10 : 20, nombre, descripcion, precio);
                                 }
                                 Utils.pulsaEnter();
                                 break;
+
                             case 5:
-                                if (user2.getP1() != null || user2.getP2() != null) {
-                                    System.out.print(user2.getP1() == null ? "" : user2.getP1() + "\n");
-                                    System.out.print(user2.getP2() == null ? "" : user2.getP2() + "\n");
-                                    System.out.println("¿Quieres comprar algún producto? (S/N): ");
-                                    teclado = s.nextLine();
-                                    if (teclado.equals("S")) {
-                                        System.out.println("Introduce el ID del producto que quieres comprar: ");
-                                        idProducto = Integer.parseInt(s.nextLine());
-                                        if (user2.getP1() != null && user2.getP1().getId() == idProducto) {
-                                            if (user2.getpPedido1() == null) user2.setpPedido1(user2.getP1());
-                                            else if (user2.getpPedido2() == null) user2.setpPedido2(user2.getP1());
-                                        } else if (user2.getP2() != null && user2.getP2().getId() == idProducto) {
-                                            if (user2.getpPedido1() == null) user2.setpPedido1(user2.getP2());
-                                            else if (user2.getpPedido2() == null) user2.setpPedido2(user2.getP2());
-                                        } else System.out.println("El ID introducido no es válido.");
-                                    } else if (teclado.equals("N")) System.out.print("");
-                                    else System.out.println("La opción introducida no es válida.");
-                                } else System.out.println("No hay productos disponibles a la venta.");
-                                System.out.println("Pulsa ENTER para continuar...");
+                                if (user2.getP1() != null) System.out.println(user2.getP1());
+                                if (user2.getP2() != null) System.out.println(user2.getP2());
+
+                                System.out.print("¿Quieres comprar? (S/N): ");
+                                teclado = s.nextLine();
+
+                                if (teclado.equals("S")) {
+                                    System.out.print("ID del producto: ");
+                                    idProducto = Integer.parseInt(s.nextLine());
+
+                                    if (user2.getP1() != null && user2.getP1().getId() == idProducto) {
+                                        if (user2.getpPedido1() == null)
+                                            user2.setpPedido1(user2.getP1());
+                                        else
+                                            user2.setpPedido2(user2.getP1());
+                                    }
+                                }
+
                                 Utils.pulsaEnter();
                                 break;
+
                             case 6:
-                                System.out.println("===============================");
-                                System.out.println("Histórico de ventas");
-                                if (user.getvVendido() != null)
-                                    System.out.println(user.getvVendido());
-                                else
-                                    System.out.println("No tienes ventas registradas.");
-                                System.out.println("===============================");
+                                System.out.println(user.getpVendido());
                                 Utils.pulsaEnter();
                                 break;
+
                             case 7:
-                                System.out.println("===============================");
-                                System.out.println("Histórico de compras");
-                                if (user.getvComprado() != null)
-                                    System.out.println(user.getvComprado());
-                                else
-                                    System.out.println("No tienes compras registradas.");
-                                System.out.println("===============================");
+                                System.out.println(user.getpComprado());
                                 Utils.pulsaEnter();
                                 break;
+
                             case 8:
-                                System.out.println();
-
-                                if (user.getpPedido1() != null || user.getpPedido2() != null) {
-
-                                    if (user.getpPedido1() != null && user.getpPedido2() != null) {
-                                        System.out.println("Tienes 2 pedidos pendientes:");
-                                        System.out.println(user.getpPedido1());
-                                        System.out.println(user.getpPedido2());
-                                        System.out.print("¿Quieres cerrar algún pedido? (S/N): ");
-                                        teclado = s.nextLine();
-
-                                        if (teclado.equalsIgnoreCase("S")) {
-                                            System.out.print("Introduce el ID del pedido que quieres cerrar: ");
-                                            idPedido = Integer.parseInt(s.nextLine());
-
-                                            if (user.getpPedido1().getId() == idPedido) {
-
-                                                System.out.print("Introduce una puntuación (1-5): ");
-                                                int puntuacion = Integer.parseInt(s.nextLine());
-                                                System.out.print("Introduce un comentario: ");
-                                                String comentario = s.nextLine();
-
-                                                Venta venta = new Venta(
-                                                        user.getpPedido1().getPrecio(),
-                                                        user2.getEmail(),
-                                                        user.getEmail(),
-                                                        puntuacion,
-                                                        comentario
-                                                );
-
-                                                user.setvVendido(venta);
-                                                user2.setvComprado(venta);
-
-                                                user.setpPedido1(null);
-                                                user.setP1(null);
-
-                                            } else if (user.getpPedido2().getId() == idPedido) {
-
-                                                System.out.print("Introduce una puntuación (1-5): ");
-                                                int puntuacion = Integer.parseInt(s.nextLine());
-                                                System.out.print("Introduce un comentario: ");
-                                                String comentario = s.nextLine();
-
-                                                Venta venta = new Venta(
-                                                        user.getpPedido2().getPrecio(),
-                                                        user2.getEmail(),
-                                                        user.getEmail(),
-                                                        puntuacion,
-                                                        comentario
-                                                );
-
-                                                user.setvVendido(venta);
-                                                user2.setvComprado(venta);
-
-                                                user.setpPedido2(null);
-                                                user.setP2(null);
-
-                                            } else {
-                                                System.out.println("El ID introducido no es válido.");
-                                            }
-                                        }
-
-                                    } else if (user.getpPedido1() != null) {
-
-                                        System.out.println("Tienes 1 pedido pendiente:");
-                                        System.out.println(user.getpPedido1());
-                                        System.out.print("¿Quieres cerrar el pedido? (S/N): ");
-                                        teclado = s.nextLine();
-
-                                        if (teclado.equalsIgnoreCase("S")) {
-                                            System.out.print("Introduce una puntuación (1-5): ");
-                                            int puntuacion = Integer.parseInt(s.nextLine());
-                                            System.out.print("Introduce un comentario: ");
-                                            String comentario = s.nextLine();
-
-                                            Venta venta = new Venta(
-                                                    user.getpPedido1().getPrecio(),
-                                                    user2.getEmail(),
-                                                    user.getEmail(),
-                                                    puntuacion,
-                                                    comentario
-                                            );
-
-                                            user.setvVendido(venta);
-                                            user2.setvComprado(venta);
-
-                                            user.setpPedido1(null);
-                                            user.setP1(null);
-                                        }
-
-                                    } else {
-
-                                        System.out.println("Tienes 1 pedido pendiente:");
-                                        System.out.println(user.getpPedido2());
-                                        System.out.print("¿Quieres cerrar el pedido? (S/N): ");
-                                        teclado = s.nextLine();
-
-                                        if (teclado.equalsIgnoreCase("S")) {
-                                            System.out.print("Introduce una puntuación (1-5): ");
-                                            int puntuacion = Integer.parseInt(s.nextLine());
-                                            System.out.print("Introduce un comentario: ");
-                                            String comentario = s.nextLine();
-
-                                            Venta venta = new Venta(
-                                                    user.getpPedido2().getPrecio(),
-                                                    user2.getEmail(),
-                                                    user.getEmail(),
-                                                    puntuacion,
-                                                    comentario
-                                            );
-
-                                            user.setvVendido(venta);
-                                            user2.setvComprado(venta);
-
-                                            user.setpPedido2(null);
-                                            user.setP2(null);
-                                        }
-                                    }
-
-                                } else {
-                                    System.out.println("No tienes pedidos pendientes.");
-                                }
-
-                                System.out.println("Pulsa ENTER para continuar...");
+                                System.out.println("Cerrar pedido");
                                 Utils.pulsaEnter();
                                 break;
+
                             case 9:
-                                System.out.print("Cerrando sesión");
-                                for (int i = 0; i < 3; ++i) {
-                                    try {
-                                        //noinspection BusyWait
-                                        Thread.sleep(600);
-                                    } catch (InterruptedException e) {
-                                        throw new RuntimeException(e);
-                                    }
-                                    System.out.print(".");
-                                }
-                                try {
-                                    //noinspection BusyWait
-                                    Thread.sleep(600);
-                                } catch (InterruptedException e) {
-                                    throw new RuntimeException(e);
-                                }
+                                System.out.println("Cerrando sesión...");
                                 break;
+
                             default:
-                                System.out.println("El valor introducido no es válido, pulsa ENTER para continuar...");
+                                System.out.println("Opción no válida");
                                 Utils.pulsaEnter();
-                                Utils.limpiaPantalla();
-                                break;
                         }
+
                         Utils.limpiaPantalla();
+
                     } while (op != 9);
                 }
             }
+
         } while (!email.equals("-1"));
     }
 }
