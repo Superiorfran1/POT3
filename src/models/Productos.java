@@ -2,10 +2,10 @@ package models;
 
 public class Productos {
 
-    int id;
-    String nombre;
-    String descripcion;
-    float precio;
+    private int id;
+    private String nombre;
+    private String descripcion;
+    private float precio;
 
     public Productos(int id, String nombre, String descripcion, float precio) {
         this.id = id;

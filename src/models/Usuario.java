@@ -4,15 +4,15 @@ import models.Venta;
 
 
 public class Usuario {
-    String email;
-    String nombre;
-    int clave;
-    Productos p1;
-    Productos p2;
-    Venta vVendido;
-    Venta vComprado;
-    Productos pPedido1;
-    Productos pPedido2;
+    private String email;
+    private String nombre;
+    private int clave;
+    private Productos p1;
+    private Productos p2;
+    private Venta vVendido;
+    private Venta vComprado;
+    private Productos pPedido1;
+    private Productos pPedido2;
 
     public Usuario(String email, int clave, String nombre) {
         this.email = email;
