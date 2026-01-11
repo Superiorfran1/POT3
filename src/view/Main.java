@@ -23,7 +23,7 @@ public class Main {
             System.out.println(Menu.Bienvenida());
             System.out.print("Introduzca email (-1 para cerrar el programa): ");
             email = s.nextLine();
-            if (email == "-1") {
+            if (email.equals("-1")) {
                 System.out.print("Introduzca clave: ");
                 int clave = Integer.parseInt(s.nextLine());
                 if ((email.equals(u1.getEmail()) || email.equals(u2.getEmail()))) {
