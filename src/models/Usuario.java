@@ -6,13 +6,21 @@ public class Usuario {
     int clave;
     Productos p1;
     Productos p2;
+    Productos pVendido;
+    Productos pComprado;
+    Productos pPedido1;
+    Productos pPedido2;
 
-    public Usuario(String email, int clave, String nombre, Productos p1, Productos p2) {
+    public Usuario(String email, int clave, String nombre) {
         this.email = email;
         this.clave = clave;
         this.nombre = nombre;
-        this.p1 = p1;
-        this.p2 = p2;
+        this.p1 = null;
+        this.p2 = null;
+        this.pVendido = null;
+        this.pComprado = null;
+        this.pPedido1 = null;
+        this.pPedido2 = null;
     }
 
     public String getEmail() {
@@ -53,6 +61,38 @@ public class Usuario {
 
     public void setP2(Productos p2) {
         this.p2 = p2;
+    }
+
+    public Productos getpVendido() {
+        return pVendido;
+    }
+
+    public void setpVendido(Productos pVendido) {
+        this.pVendido = pVendido;
+    }
+
+    public Productos getpComprado() {
+        return pComprado;
+    }
+
+    public void setpComprado(Productos pComprado) {
+        this.pComprado = pComprado;
+    }
+
+    public Productos getpPedido1() {
+        return pPedido1;
+    }
+
+    public void setpPedido1(Productos pPedido1) {
+        this.pPedido1 = pPedido1;
+    }
+
+    public Productos getpPedido2() {
+        return pPedido2;
+    }
+
+    public void setpPedido2(Productos pPedido2) {
+        this.pPedido2 = pPedido2;
     }
 
     public void cambiaDatoPersonal(int op, String teclado) {

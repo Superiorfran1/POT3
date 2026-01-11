@@ -47,7 +47,7 @@ public class Productos {
 
     @Override
     public String toString() {
-        return "🛒 Producto \n" + id + "\n" +
+        return "🛒 Producto: " + id + "\n" +
                 "   🏷️ Nombre: " + nombre + "\n" +
                 "   📄 Descripción: " + descripcion + "\n" +
                 "   💲 Precio: " + precio + "\n";
