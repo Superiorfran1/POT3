@@ -1,13 +1,16 @@
 package models;
 
+import models.Venta;
+
+
 public class Usuario {
     String email;
     String nombre;
     int clave;
     Productos p1;
     Productos p2;
-    Productos pVendido;
-    Productos pComprado;
+    Venta vVendido;
+    Venta vComprado;
     Productos pPedido1;
     Productos pPedido2;
 
@@ -17,8 +20,8 @@ public class Usuario {
         this.nombre = nombre;
         this.p1 = null;
         this.p2 = null;
-        this.pVendido = null;
-        this.pComprado = null;
+        this.vVendido = null;
+        this.vComprado = null;
         this.pPedido1 = null;
         this.pPedido2 = null;
     }
@@ -63,20 +66,20 @@ public class Usuario {
         this.p2 = p2;
     }
 
-    public Productos getpVendido() {
-        return pVendido;
+    public Venta getvVendido() {
+        return vVendido;
     }
 
-    public void setpVendido(Productos pVendido) {
-        this.pVendido = pVendido;
+    public void setvVendido(Venta vVendido) {
+        this.vVendido = vVendido;
     }
 
-    public Productos getpComprado() {
-        return pComprado;
+    public Venta getvComprado() {
+        return vComprado;
     }
 
-    public void setpComprado(Productos pComprado) {
-        this.pComprado = pComprado;
+    public void setvComprado(Venta vComprado) {
+        this.vComprado = vComprado;
     }
 
     public Productos getpPedido1() {
