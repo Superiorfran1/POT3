@@ -20,37 +20,53 @@ public class Usuario {
     }
 
     public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
+
     public String getNombre() { return nombre; }
+    public void setNombre(String nombre) { this.nombre = nombre; }
+
     public int getClave() { return clave; }
+    public void setClave(int clave) { this.clave = clave; }
 
     public Productos getP1() { return p1; }
+    public void setP1(Productos p1) { this.p1 = p1; }
+
     public Productos getP2() { return p2; }
+    public void setP2(Productos p2) { this.p2 = p2; }
 
     public Productos getpVendido() { return pVendido; }
+    public void setpVendido(Productos pVendido) { this.pVendido = pVendido; }
+
     public Productos getpComprado() { return pComprado; }
+    public void setpComprado(Productos pComprado) { this.pComprado = pComprado; }
 
     public Productos getpPedido1() { return pPedido1; }
+    public void setpPedido1(Productos pPedido1) { this.pPedido1 = pPedido1; }
+
     public Productos getpPedido2() { return pPedido2; }
+    public void setpPedido2(Productos pPedido2) { this.pPedido2 = pPedido2; }
 
-    public void setpPedido1(Productos p) { pPedido1 = p; }
-    public void setpPedido2(Productos p) { pPedido2 = p; }
-
-    public void setpVendido(Productos p) { pVendido = p; }
-    public void setpComprado(Productos p) { pComprado = p; }
-
-    public void cambiaDatoPersonal(int op, String dato) {
-        if (op == 1) nombre = dato;
-        if (op == 2) email = dato;
-        if (op == 3) clave = Integer.parseInt(dato);
+    public void cambiaDatoPersonal(int op, String teclado) {
+        switch (op) {
+            case 1 -> this.setNombre(teclado);
+            case 2 -> this.setEmail(teclado);
+            case 3 -> this.setClave(Integer.parseInt(teclado));
+        }
     }
 
-    public void nuevoProducto(int id, String n, String d, float p) {
-        if (p1 == null) p1 = new Productos(id + 1, n, d, p);
-        else if (p2 == null) p2 = new Productos(id + 2, n, d, p);
+    public void nuevoProducto(int id, String nombreProducto,
+                              String descripcionProducto, float precioProducto) {
+        if (this.getP1() == null) {
+            this.setP1(new Productos(id + 1, nombreProducto, descripcionProducto, precioProducto));
+        } else if (this.getP2() == null) {
+            this.setP2(new Productos(id + 2, nombreProducto, descripcionProducto, precioProducto));
+        }
     }
 
     @Override
     public String toString() {
-        return "Usuario: " + nombre + "\nEmail: " + email;
+        return "👤 Usuario: " + nombre + "\n" +
+                " 📧 Email: " + email + "\n" +
+                " 🔑 Clave: " + clave + "\n";
     }
 }

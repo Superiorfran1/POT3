@@ -5,11 +5,12 @@ import java.util.Scanner;
 public class Utils {
 
     public static void pulsaEnter() {
-        new Scanner(System.in).nextLine();
+        Scanner s = new Scanner(System.in);
+        s.nextLine();
     }
 
     public static void limpiaPantalla() {
-        for (int i = 0; i < 40; i++) {
+        for (int i = 0; i < 50; i++) {
             System.out.println();
         }
     }
