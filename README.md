@@ -7,6 +7,8 @@ README
 FernanPop es una aplicación de consola desarrollada en Java que simula una plataforma de compra-venta entre usuarios de un centro educativo.
 El programa permite a los usuarios poner productos a la venta, comprar productos de otros usuarios, gestionar pedidos y mantener un histórico de compras y ventas con posibilidad de valoración.
 
+Para una información más detallada que este Readme, consultar la Guía de uso – FernanPop.pdf que está en la carpeta.
+
 <br>
 
 ▶️ Ejecución del programa
