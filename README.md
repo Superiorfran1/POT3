@@ -12,13 +12,14 @@ Para una información más detallada que este Readme, consultar la Guía de uso 
 <br>
 
 ▶️ Ejecución del programa
-- Abrir la carpeta "POT3", y luego "FernanPop"
-- Ejecutar el archivo Start.bat
+- Descargar el archivo .zip del programa y extraerlo.
+- Abrir la carpeta "POT3", y luego "FernanPop".
+- Ejecutar el archivo Start.bat.
 - Introducir el email y la clave de uno de los usuarios disponibles:
     1. Email: carlos.barroso@fernando3martos.com, Clave: 1234
     2. Email: fcanmae0512@g.educaaand.es", Clave: 4321
 
-- Navegar por el menú mediante las opciones numéricas
+- Navegar por el menú mediante las opciones numéricas.
 
 <br>
 
@@ -28,14 +29,14 @@ Para una información más detallada que este Readme, consultar la Guía de uso 
 <br>
 
 🔑 Funcionalidades principales
-- Inicio de sesión mediante email y clave
-- Visualización y modificación del perfil del usuario
-- Alta de productos en venta (máximo 2 por usuario)
-- Visualización de productos disponibles
-- Compra de productos de otros usuarios
-- Gestión y cierre de pedidos
-- Histórico de compras y ventas
-- Valoración de productos adquiridos
+- Inicio de sesión mediante email y clave.
+- Visualización y modificación del perfil del usuario.
+- Alta de productos en venta (máximo 2 por usuario).
+- Visualización de productos disponibles.
+- Compra de productos de otros usuarios.
+- Gestión y cierre de pedidos.
+- Histórico de compras y ventas.
+- Valoración de productos adquiridos.
 
 <br>
 
@@ -69,26 +70,26 @@ src/ <br>
 🧩 Descripción de las clases principales
 - 👤 Usuario, representa a un usuario de la plataforma.
     Responsabilidades:
-    · Almacenar datos personales (nombre, email y clave)
-    · Gestionar productos en venta (máx. 2)
-    · Gestionar pedidos pendientes
-    · Almacenar una compra y una venta en el histórico
-    · Permitir modificar los datos personales
+    · Almacenar datos personales (nombre, email y clave).
+    · Gestionar productos en venta (máx. 2).
+    · Gestionar pedidos pendientes.
+    · Almacenar una compra y una venta en el histórico.
+    · Permitir modificar los datos personales.
 
 - 🛒 Productos, representa un producto puesto a la venta por un usuario.
     Atributos principales:
-    · Identificador del producto
-    · Nombre
-    · Descripción
-    · Precio
+    · Identificador del producto.
+    · Nombre.
+    · Descripción.
+    · Precio.
 
 - 💰 Venta, representa una transacción de compra-venta entre dos usuarios.
     Información almacenada:
-    · Precio final
-    · Email del comprador
-    · Email del vendedor
-    · Puntuación del producto
-    · Comentario del comprador
+    · Precio final.
+    · Email del comprador.
+    · Email del vendedor.
+    · Puntuación del producto.
+    · Comentario del comprador.
 
 <br>
 
@@ -98,17 +99,17 @@ UML:
 <br>
 
 🎯 Objetivos del proyecto
-- Aplicar los principios de la Programación Orientada a Objetos
-- Diseñar y utilizar clases, atributos, métodos y constructores
-- Gestionar la interacción entre objetos (Usuario, Producto y Venta)
-- Implementar un menú interactivo en consola
-- Controlar límites del sistema (máximo de productos, compras y ventas)
+- Aplicar los principios de la Programación Orientada a Objetos.
+- Diseñar y utilizar clases, atributos, métodos y constructores.
+- Gestionar la interacción entre objetos (Usuario, Producto y Venta).
+- Implementar un menú interactivo en consola.
+- Controlar límites del sistema (máximo de productos, compras y ventas).
 
 <br>
 
 👨‍💻 Autores
-- Nombres: Francisco Cantero Maestro y Mihai Iosif Koritar
-- Asignatura: Programación
-- Unidad: Tema 3 – Programación Orientada a Objetos
-- Curso: 1º DAM
-- Evaluación: 1ª Evaluación
+- Nombres: Francisco Cantero Maestro y Mihai Iosif Koritar.
+- Asignatura: Programación.
+- Unidad: Tema 3 – Programación Orientada a Objetos.
+- Curso: 1º DAM.
+- Evaluación: 1ª Evaluación.
